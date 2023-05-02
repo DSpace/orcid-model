@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.orcid</groupId>
 	<artifactId>orcid-model-jakarta</artifactId>
@@ -11,6 +9,7 @@
 	<url>https://github.com/ORCID/orcid-model</url>
 
 	<properties>
+		<github.url>scm:git:git@github.com:denis-yuen/orcid-model.git</github.url>
 		<main.basedir>${project.basedir}</main.basedir>
 		<swagger.version>2.2.7</swagger.version>
 		<jena.version>3.6.0</jena.version>
@@ -35,10 +34,11 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/ORCID/orcid-model.git</connection>
-		<developerConnection>scm:git:ssh://github.com:ORCID/orcid-model.git</developerConnection>
-		<url>http://github.com/ORCID/orcid-model/tree/master</url>
-	</scm>
+		<connection>${github.url}</connection>
+		<developerConnection>${github.url}</developerConnection>
+		<url>${github.url}</url>
+	  <tag>3.3.0</tag>
+  </scm>
 
 	<profiles>
 		<profile>
@@ -169,13 +169,10 @@
 	</build>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
 		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<id>central</id>
+			<name>artifacts.oicr.on.ca-releases</name>
+			<url>https://artifacts.oicr.on.ca/artifactory/collab-release</url>
 		</repository>
 	</distributionManagement>
 
