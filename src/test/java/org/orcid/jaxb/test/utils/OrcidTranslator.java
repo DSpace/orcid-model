@@ -1,5 +1,6 @@
 package org.orcid.jaxb.test.utils;
 
+import com.fasterxml.jackson.module.jakarta.xmlbind.JakartaXmlBindAnnotationModule;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,10 +17,10 @@ import java.net.URL;
 import java.util.Optional;
 
 import javax.xml.XMLConstants;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
@@ -31,7 +32,6 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import com.google.common.io.Resources;
 
 
@@ -113,7 +113,7 @@ public class OrcidTranslator<T> {
      */
     private OrcidTranslator(SchemaVersion location) {
         mapper = new ObjectMapper();
-        JaxbAnnotationModule module = new JaxbAnnotationModule();
+        JakartaXmlBindAnnotationModule module = new JakartaXmlBindAnnotationModule();
         mapper.registerModule(module);
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
         modelClass = location.modelClass;
