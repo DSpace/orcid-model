@@ -16,6 +16,10 @@
 		<jena.version>4.9.0</jena.version>
 		<jackson.version>2.16.2</jackson.version>
 		<spring.version>6.1.5</spring.version>
+
+		<!--=== MAVEN SETTINGS ===-->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 	</properties>
 
 	<licenses>
