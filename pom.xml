@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.dspace</groupId>
 	<artifactId>orcid-model-jakarta</artifactId>
-	<version>3.3.0</version>
+	<version>3.3.0-SNAPSHOT</version>
 
 	<name>ORCID - Model (Jakarta version)</name>
 	<description>Forked version of ORCID Model API to support Jakarta EE</description>
@@ -42,7 +42,7 @@
 		<connection>${github.url}</connection>
 		<developerConnection>${github.url}</developerConnection>
 		<url>${github.url}</url>
-		<tag>orcid-model-jakarta-3.3.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<profiles>
