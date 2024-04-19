@@ -1,3 +1,54 @@
+# Fork of ORCID-Model to support Jakarta EE
+
+This fork of https://github.com/dockstore/orcid-model/ is an EXACT COPY of that codebase,
+with very minor modifications for DSpace:
+* Modified `pom.xml` to us to release it to Maven Central under `org.dspace:orcid-model-jakarta` (as no Jakarta EE compatible version exists in Maven Central).
+* Modified `pom.xml` to use latest versions of dependencies to align with Spring v6.
+* Fixed a few tests which failed compilation in Spring v6
+* Added Build/Test & Release instructions below.
+
+This fork is only necessary until `org.orcid:orcid-model` becomes compatible with Jakarta EE.
+See https://github.com/ORCID/orcid-model/issues/50
+
+## Use Maven Dependency
+NOTE: This fork is released under the `org.dspace` group for usage by DSpace.
+The official ORCID API is released under `org.orcid:orcid-model`.
+```
+   <dependency>
+      <groupId>org.dspace</groupId>
+      <artifactId>orcid-model-jakarta</artifactId>
+      <version>3.3.0</version>
+   </dependency>
+```
+
+## Build & Test
+```
+mvn install
+```
+
+## SNAPSHOT release to Maven Central Snapshots
+Releases a `*-SNAPSHOT` release to https://oss.sonatype.org/content/repositories/snapshots
+```
+mvn clean javadoc:jar source:jar deploy
+```
+
+## Official Release to Maven Central
+```
+# Test release process
+mvn release:prepare -DdryRun=true -Drelease
+
+# Tag release in GitHub
+mvn release:prepare -Dresume=false -Drelease
+
+# Deploy release to Sonatype
+mvn release:perform -Drelease
+
+# Login to http://oss.sonatype.org/
+# Verify and release to Maven Central
+```
+
+----------------------------------
+
 # ORCID-Model
 
 This repository contains the data model used in the ORCID Registry and APIs as well as Java classes used for mashalling/unmarshalling.
